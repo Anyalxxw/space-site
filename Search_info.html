@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Searching </title>
-    <script src="script.js"></script>
-    <link href="styles.css" rel="stylesheet">
+    <title>Searching Information</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    </head>
 </head>
-<body>
-      <!-- Загрузка -->
-      <div id="loader" class="fixed inset-0 bg-sky-950 flex items-center justify-center z-50">
+<body style="background-image: url(https://cdn.mos.cms.futurecdn.net/HuGGeENt6kGyixe3hT9tnY-1200-80.jpg);">
+    <!-- Загрузка -->
+    <div id="loader" class="fixed inset-0 bg-sky-950 flex items-center justify-center z-50">
         <div class="content">
             <div class="planet">
                <div class="ring"></div>
@@ -29,8 +30,19 @@
          </div>
       </div>
 
-      
-        
+      <!-- Поиск Информации -->
+      <main>
+        <div class="flex flex-col justify-center items-center gap-6 h-screen">
+          <h1 class="font-roboto text-3xl text-white">Узнай все про космос не покидая сайт!</h1>
+          <div class="flex flex-row gap-4">
+            <input class="h-[35px] w-[300px]" placeholder="Введите поисковой запрос...">
+            <button  onclick="">Поиск...</button>
+          </div>
+        </div>
+      </main>
+
+
+
 
 
 </body>
