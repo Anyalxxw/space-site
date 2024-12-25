@@ -1,140 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rocket Dodge Game</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
-    canvas {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Rocket Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        canvas {
+            display: block;
+            position: absolute;
+            z-index: 10;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            object-fit: cover;
+        }
+        .text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            padding: 1rem;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .text-overlay h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+        }
+        .text-overlay p {
+            margin: 0;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .text-overlay {
+                padding: 0.5rem;
+            }
+            .text-overlay h1 {
+                font-size: 1.2rem;
+            }
+            .text-overlay p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (orientation: portrait) {
+            video {
+                object-fit: contain;
+                height: 100vh;
+                width: auto;
+            }
+        }
+
+        @media (orientation: landscape) {
+            video {
+                object-fit: cover;
+                width: 100vw;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-  <canvas id="gameCanvas"></canvas>
+  <!-- Background Video -->
+  <video autoplay muted loop>
+    <source src="Space_stars.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
 
-  <script>
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
+<!-- Text and Score -->
+<div class="text-overlay">
+    <h1>Space Rocket Game</h1>
+    <p>Счет: <span id="score">0</span></p>
+</div>
 
-    // Set canvas to full screen
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 
-    // Rocket properties
-    const rocket = {
-      x: canvas.width / 2 - 25,
-      y: canvas.height - 100,
-      width: 50,
-      height: 100,
-      color: 'white',
-      speed: 10
-    };
-
-    // Rocket image
-    const rocketImg = new Image();
-    rocketImg.src = 'rocket.png';
-
-    // Array of meteors
-    const meteors = [];
-    const meteorFrequency = 60;
-
-    // Game state
-    let isGameOver = false;
-    let frames = 0;
-
-    // Create meteor
-    function createMeteor() {
-      const size = Math.random() * 50 + 20;
-      meteors.push({
-        x: Math.random() * (canvas.width - size),
-        y: -size,
-        width: size,
-        height: size,
-        color: 'red',
-        speed: Math.random() * 3 + 2
-      });
-    }
-
-    // Draw rocket
-    function drawRocket() {
-      ctx.drawImage(rocketImg, rocket.x, rocket.y, rocket.width, rocket.height);
-    }
-
-    // Draw meteors
-    function drawMeteors() {
-      meteors.forEach(meteor => {
-        ctx.fillStyle = meteor.color;
-        ctx.fillRect(meteor.x, meteor.y, meteor.width, meteor.height);
-      });
-    }
-
-    // Update meteors
-    function updateMeteors() {
-      meteors.forEach((meteor, index) => {
-        meteor.y += meteor.speed;
-
-        // Remove meteor if it goes off screen
-        if (meteor.y > canvas.height) {
-          meteors.splice(index, 1);
-        }
-
-        // Check collision with rocket
-        if (
-          rocket.x < meteor.x + meteor.width &&
-          rocket.x + rocket.width > meteor.x &&
-          rocket.y < meteor.y + meteor.height &&
-          rocket.y + rocket.height > meteor.y
-        ) {
-          isGameOver = true;
-        }
-      });
-    }
-
-    // Handle input
-    document.addEventListener('keydown', (e) => {
-      if (isGameOver) return;
-      if (e.key === 'ArrowLeft' && rocket.x > 0) {
-        rocket.x -= rocket.speed;
-      }
-      if (e.key === 'ArrowRight' && rocket.x < canvas.width - rocket.width) {
-        rocket.x += rocket.speed;
-      }
-    });
-
-    // Game loop
-    function gameLoop() {
-      if (isGameOver) {
-        ctx.fillStyle = 'white';
-        ctx.font = '48px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2);
-        return;
-      }
-
-      frames++;
-      if (frames % meteorFrequency === 0) {
-        createMeteor();
-      }
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      drawRocket();
-      drawMeteors();
-      updateMeteors();
-
-      requestAnimationFrame(gameLoop);
-    }
-
-    // Start game
-    rocketImg.onload = () => {
-      gameLoop();
-    };
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
