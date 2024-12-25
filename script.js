@@ -3,25 +3,35 @@ setTimeout(function() {
 }, 3000);
 
 // Поиск
-// function performSearch() {
-//     const query = document.getElementById('query').value.trim();
-//     const engine = document.getElementById('engine').value;
-
-//     if (query) {
-//       const url = engine + encodeURIComponent(query);
-//       window.open(url, '_blank');
-//     } else {
-//       alert('Please enter a search query.');
-//     }
-//   }
-
-//   // Обработчик события на поле ввода
-//   document.getElementById('query').addEventListener('keydown', function(event) {
-//     if (event.key === 'Enter') { // Если нажата клавиша Enter
-//       performSearch(); // Запустить поиск
-//     }
-//   });
-
+      // Функция поиска
+// Функция выполнения поиска
+function performSearch() {
+    const query = document.getElementById('query').value.trim();
+    if (query) {
+      const googleSearchURL = 'https://www.google.com/search?q=';
+      const url = googleSearchURL + encodeURIComponent(query);
+      window.open(url, '_blank'); // Открыть результаты поиска в новой вкладке
+    } else {
+      alert('Please enter a search query.'); // Уведомление, если поле пустое
+    }
+  }
+  
+  // Привязка события к кнопке "Search"
+  document.getElementById('searchButton').addEventListener('click', performSearch);
+  
+  // Привязка события к полю ввода (нажатие Enter)
+  document.getElementById('query').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      performSearch();
+    }
+  });
+  
+  // Убрать загрузочный экран после полной загрузки страницы
+  window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+  });
+  
+      
 
 // Space Rocket Game
 const canvas = document.createElement('canvas');
