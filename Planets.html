@@ -4,173 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planets</title>
-    <link href="styles.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
 </head>
-<body>
-     <!-- Загрузка -->
-     <div id="loader" class="fixed inset-0 bg-sky-950 flex items-center justify-center z-50">
-        <div class="content">
-            <div class="planet">
-               <div class="ring"></div>
-                  <div class="cover-ring"></div>
-               <div class="spots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-               </div>
+<body class="relative h-screen overflow-hidden">
+    <video 
+    class="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+    autoplay muted loop>
+    <source src="Images_Videos/Space_stars.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-50">
+        <h1 class="text-5xl font-bold mb-10 text-center text-white">Планеты Солнечной Системы</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-5">
+          <!-- Меркурий -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/Mercury.png" alt="Меркурий">
+            <p class="text-xl mt-4 text-white">Меркурий</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Меркурий</h2>
+              <p class="text-white">Первая планета от Солнца<br>Диаметр: 4879 км<br>Средняя температура: -180°C до 430°C</p>
             </div>
-            <p>loading</p>
-         </div>
-    </div>
-
-
-    <main>
-        <div>
-            <div class="relative">
-                <video src="Space_stars.mp4"  muted loop autoplay></video>
+          </div>
+  
+          <!-- Венера -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/Venera.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Венера</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Венера</h2>
+              <p class="text-white">Вторая планета от Солнца<br>Диаметр: 12104 км<br>Средняя температура: около +475°C</p>
             </div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold flex flex-col items-center justify-center gap-10">
-                <h1>Планеты</h1>
-                <div class="w-[1000px] h-[400px] mb-[70px] flex flex-row flex-wrap justify-center gap-20">
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <!-- Planet 1 -->
-                        <img class="h-[150px] w-[150px] " src="Mercury.png">
-                        <p class="text-lg">Меркурий</p>
-                        <div class="absolute w-[250px] h-[280px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Первая планета от Солнца</h1>
-                            <p>Диаметр: 4879 км<br>
-                                Масса: 3,3 * 10^23 кг<br>
-                                Средняя плотность: 5,43 г/см3<br>
-                                Температура поверхностиот:  -180 до +430 °С<br>
-                                Обращение вокруг солнца: 88 земных суток<br>
-                                Скорость движения по орбите: 48 км/сек<br>
-                                Растояние от Солнца: 58 млн. км<br>
-                                Спутники: отсутствуют
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Planet 2 -->
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <img class="h-[150px] w-[150px]" src="Venera.png" >
-                        <p class="text-lg">Венера</p>
-                        <div class="absolute w-[250px] h-[280px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Вторая планета от Солнца</h1>
-                            <p>Диаметр: 12104 км<br>
-                                Масса: 4,87 * 1024 кг<br>
-                                Средняя плотность: 5,24 г/см3<br>
-                                Температура поверхности: около  +475 °С<br>
-                                Обращение вокруг солнца: 224,7 земных суток<br>
-                                Скорость движения по орбите: 35 км/сек<br>
-                                Растояние от Солнца: 108 млн. км<br>
-                                Спутники: отсутствуют
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Planet 3 -->
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <img  class="h-[150px] w-[150px]" src="earth.png" >
-                        <p class="text-lg">Земля</p>
-                        <div class="absolute w-[250px] h-[280px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Третья планета от Солнца</h1>
-                            <p>Диаметр: 12742 км<br>
-                                Масса: 5,98 * 1024 кг<br>
-                                Средняя плотность: 5,52 г/см3<br>
-                                Температура поверхностиот: -89 до +58 °С<br>
-                                Обращение вокруг солнца: 365,26 земных суток<br>
-                                Скорость движения по орбите: 30 км/сек<br>
-                                Растояние от Солнца: 150 млн. км<br>
-                                Спутники: Луна
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Planet 4 -->
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <img class="h-[150px] w-[150px]" src="Mars.png">
-                        <p class="text-lg">Марс</p>
-                        <div class="absolute w-[250px] h-[280px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Четвёртая планета от Солнца</h1>
-                            <p>Диаметр: 6772 км<br>
-                                Масса: 6,41 * 1023 кг<br>
-                                Средняя плотность: 3,93 г/см3<br>
-                                Температура поверхностиот: -153 до +30 °С<br>
-                                Обращение вокруг солнца: 687 земных суток<br>
-                                Скорость движения по орбите: 24 км/сек<br>
-                                Растояние от Солнца: 228 млн. км<br>
-                                Спутники: Фобос, Деймос
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Planet 5 -->
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <img class="h-[150px] w-[150px]" src="Ypiter.png">
-                        <p class="text-lg">Юпитер</p>
-                        <div class="absolute w-[250px] h-[300px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Пятая планета от Солнца</h1>
-                            <p>Диаметр: 143000 км<br>
-                                Масса: 1,9 * 1027 кг<br>
-                                Средняя плотность: 1,32 г/см3<br>
-                                Температура поверхности: средняя  +130 °С<br>
-                                Обращение вокруг солнца: 11,86 земных лет<br>
-                                Скорость движения по орбите: 13 км/сек<br>
-                                Растояние от Солнца: 778 млн. км<br>
-                                Спутники: Ио, Европа, Ганимед, Каллисто - всего 63
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Planet 6 -->
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <img class="h-[150px] w-[300px]" src="Saturn.png">
-                        <p class="text-lg">Сатурн</p>
-                        <div class="absolute w-[250px] h-[340px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Шестая планета от Солнца</h1>
-                            <p>Диаметр: 120 536 км<br>
-                                Масса: 5,68 * 1026 кг<br>
-                                Средняя плотность: 0,69 г/см3<br>
-                                Температура поверхности: средняя -180 °С<br>
-                                Обращение вокруг солнца: 26,5 земных лет<br>
-                                Скорость движения по орбите: 10 км/сек<br>
-                                Растояние от Солнца: 1,43 млрд. км<br>
-                                Спутники: Титан, Япет, Рея, Тефия, Диона, Энцелад, Мимас, Гиперион, Феба, Янус, Эпиметей - всего 62
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Planet 7 -->
-                    <div class="flex flex-col justify-center items-center relative group">
-                        <img class="h-[150px] w-[150px]" src="Uran.png">
-                        <p class="text-lg">Уран</p>
-                        <div class="absolute w-[250px] h-[300px] mt-2 hidden group-hover:block bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">
-                            <h1 class="text-center">Седьмая планета от Солнца</h1>
-                            <p>Диаметр: 51118 км<br>
-                                Масса: 8,68 * 1025 кг<br>
-                                Средняя плотность: 1,27 г/см3<br>
-                                Температура поверхности: средняя -210 °С<br>
-                                Обращение вокруг солнца: 84 земных года<br> 
-                                Скорость движения по орбите: 7 км/сек<br>
-                                Растояние от Солнца: 2,8 млрд. км<br>
-                                Спутники: Титания, Оберон, Пак - всего 27
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
-                 <!-- Button -->
-                <a href="Search_info.html" class="Btn">
-                NEXT
-                <svg viewBox="0 0 320 512" class="svg">
-                  <path
-                    d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241V96c0-17.7 14.3-32 32-32s32 14.3 32 32V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V271l-11.5 9.6-192 160z"
-                  ></path>
-                </svg>
-              </a>
+          </div>
+  
+          <!-- Земля -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/earth.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Земля</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Земля</h2>
+              <p class="text-white">Третья планета от Солнца<br>Диаметр: 12742 км<br>Температура: от -89°C до +58°C</p>
             </div>
+          </div>
+
+          <!-- марс -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/Mars.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Марс</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Марс</h2>
+              <p class="text-white">Четвёртая планета от Солнца<br>Диаметр: 6772 км<br>Температура: от -153°C до +30°C</p>
+            </div>
+          </div>
+
+          <!-- Юпитер -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/Ypiter.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Юпитер</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Юпитер</h2>
+              <p class="text-white">Пятая планета от Солнца<br>Диаметр: 143000 км<br>Средняя температура: около +130°C</p>
+            </div>
+          </div>
+
+          <!-- Сатурн -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-50 rounded-full" src="Images_Videos/Saturn.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Сатурн</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Сатурн</h2>
+              <p class="text-white">Шестая планета от Солнца<br>Диаметр: 120536 км<br>Средняя температура: -180°C</p>
+            </div>
+          </div>
+
+          <!-- Уран -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/Uran.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Уран</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Уран</h2>
+              <p class="text-white">Седьмая планета от Солнца<br>Диаметр: 51118 км<br>Средняя температура: -210°C</p>
+            </div>
+          </div>
+
+          <!-- Нептун -->
+          <div class="relative group flex flex-col items-center">
+            <img class="h-32 w-32 rounded-full" src="Images_Videos/Neptun.png" alt="Венера">
+            <p class="text-xl mt-4 text-white">Нептун</p>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300 bg-gray-800 bg-opacity-90 p-4 rounded shadow-lg w-64 text-sm">
+              <h2 class="font-bold text-center mb-2 text-white">Нептун</h2>
+              <p class="text-white">Восьмая планета от Солнца<br>Диаметр: 49244 км<br>Средняя температура: -218°C</p>
+            </div>
+          </div>
         </div>
-    </main>
+        <a href="Search_info.html" class="px-6 py-3 mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md transition">Дальше</a>
+      </div>
 </body>
 </html>

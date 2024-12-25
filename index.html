@@ -4,54 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
 </head>
-<body>
-    <!-- Загрузка -->
-    <div id="loader" class="fixed inset-0 bg-sky-950 flex items-center justify-center z-50">
-        <div class="content">
-            <div class="planet">
-               <div class="ring"></div>
-                  <div class="cover-ring"></div>
-               <div class="spots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-               </div>
-            </div>
-            <p>loading</p>
-         </div>
+<body class="relative h-screen overflow-hidden"> 
+    <video 
+    class="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+    autoplay muted loop>
+    <source src="Images_Videos/earth.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+    <div class="flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-50">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Добро Пожаловать в Наш Space</h1>
+    <p class="text-lg md:text-2xl mb-6">Добро пожаловать в захватывающий мир космоса!<br> Наш сайт — это ваше виртуальное окно во Вселенную.<br> Откройте для себя тайны Вселенной,<br> узнайте больше о планетах, звёздах, галактиках<br> и отправьтесь в увлекательное путешествие<br> за пределы Земли!</p>
+    <a href="Planets.html" class="px-6 py-3 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md transition">Узнать больше</a>
+    <a href="Space_game.html" class="px-6 py-3 mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md transition">Играть</a>
     </div>
-
-    
-  <header>
-        <div class="relative">
-            <video src="earth.mp4" muted loop autoplay></video>
-        </div>
-        <div class="absolute top-1/2 right-40 transform -translate-y-1/2  text-white text-4xl font-bold flex flex-col gap-6">
-            <h1 class="font-roboto text-5xl font-semibold">Parallel universes</h1>
-            <p class="font-roboto text-lg">Добро пожаловать в захватывающий мир космоса!<br> Наш сайт — это ваше виртуальное окно во Вселенную.<br> Откройте для себя тайны Вселенной,<br> узнайте больше о планетах, звёздах, галактиках<br> и отправьтесь в увлекательное путешествие<br> за пределы Земли!</p>
-
-            
-            <!-- Button -->
-            <a href="Planets.html" class="Btn">
-              START
-              <svg viewBox="0 0 320 512" class="svg">
-                <path
-                  d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241V96c0-17.7 14.3-32 32-32s32 14.3 32 32V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V271l-11.5 9.6-192 160z"
-                ></path>
-              </svg>
-            </a>
-        </div>
-  </header>
 </body>
 </html>

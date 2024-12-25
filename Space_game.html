@@ -3,90 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Rocket Game</title>
+    <title>SpaceShip_Game</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            position: relative;
+        #gameCanvas {
+          display: block;
+          width: 100vw;
+          height: 100vh;
         }
-        canvas {
-            display: block;
-            position: absolute;
-            z-index: 10;
-        }
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            object-fit: cover;
-        }
-        .text-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 50;
-            padding: 1rem;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        .text-overlay h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 0 0.5rem 0;
-        }
-        .text-overlay p {
-            margin: 0;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .text-overlay {
-                padding: 0.5rem;
-            }
-            .text-overlay h1 {
-                font-size: 1.2rem;
-            }
-            .text-overlay p {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (orientation: portrait) {
-            video {
-                object-fit: contain;
-                height: 100vh;
-                width: auto;
-            }
-        }
-
-        @media (orientation: landscape) {
-            video {
-                object-fit: cover;
-                width: 100vw;
-                height: auto;
-            }
-        }
-    </style>
+      </style>
 </head>
-<body>
-  <!-- Background Video -->
-  <video autoplay muted loop>
-    <source src="Space_stars.mp4" type="video/mp4">
+<body class="relative h-screen overflow-hidden">
+    <video 
+    class="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+    autoplay muted loop>
+    <source src="Images_Videos/Space_stars.mp4" type="video/mp4">
     Your browser does not support the video tag.
-</video>
-
-<!-- Text and Score -->
-<div class="text-overlay">
-    <h1>Space Rocket Game</h1>
-    <p>Счет: <span id="score">0</span></p>
-</div>
-
-
-    <script src="script.js"></script>
+    </video>
+    <div class="absolute top-0 left-0 z-10 p-4 text-white font-sans">
+        <h1 class="text-2xl md:text-4xl font-bold mb-2">Space Rocket Game</h1>
+        <p class="text-lg md:text-xl">Счёт: <span id="score">0</span></p>
+      </div>
+    
+      <!-- Канвас -->
+      <canvas id="gameCanvas" class="absolute top-0 left-0 z-10"></canvas>
+      <script src="JS_Script.js"></script>
 </body>
 </html>
