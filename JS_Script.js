@@ -112,3 +112,7 @@ window.addEventListener('keyup', (e) => {
 
 spawnObstacles();
 gameLoop();
+
+
+
+
